@@ -1,22 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <title>Weather Dashboard</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Weather Dashboard</title>
+</head>
 
-    <body>
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <section class="container-fluid d-flex">
 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"></script>
-    </body>
+        <div class="search-form col-12 col-lg-3" id="search-form">
+            <label for="searchCities" class="form-label">Search for a city:</label>
+            <input type="search" id="search-cities" class="form-control" placeholder="San Diego">
+            <button type="button" class="btn btn-primary my-3">Search</button>
+            <div class="list-group" id="example-cities">
+                <button type="button" class="list-group-item list-group-item-action my-2">Atlanta</button>
+                <button type="button" class="list-group-item list-group-item-action my-2">Denver</button>
+                <button type="button" class="list-group-item list-group-item-action my-2">Seattle</button>
+                <button type="button" class="list-group-item list-group-item-action my-2">San Francisco</button>
+                <button type="button" class="list-group-item list-group-item-action my-2">Orlando</button>
+                <button type="button" class="list-group-item list-group-item-action my-2">New York</button>
+                <button type="button" class="list-group-item list-group-item-action my-2">Chicago</button>
+                <button type="button" class="list-group-item list-group-item-action my-2">Austin</button>
+            </div>
+        </div>
+
+        <div class="info-table row" id="info-table">
+
+            <div class="col-12 col-lg-9">
+                <div id="weather-info">
+                    
+                </div>
+            </div>
+
+            <div id="five-day row">
+
+                <div class="card">
+                    <div class="card-header">
+                        Location
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title">Location</h5>
+                        <p class="card-text">Weather info:</p>
+                        <a href="#" class="btn btn-primary">More info</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Location
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title">Location</h5>
+                        <p class="card-text">Weather info:</p>
+                        <a href="#" class="btn btn-primary">More info</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Location
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title">Location</h5>
+                        <p class="card-text">Weather info:</p>
+                        <a href="#" class="btn btn-primary">More info</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Location
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title">Location</h5>
+                        <p class="card-text">Weather info:</p>
+                        <a href="#" class="btn btn-primary">More info</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Location
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Location</h5>
+                        <p class="card-text">Weather info:</p>
+                        <a href="#" class="btn btn-primary">More info</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
 
 </html>
