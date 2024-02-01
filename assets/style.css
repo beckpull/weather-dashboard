@@ -1,3 +1,7 @@
 #five-day {
     display: flex;
 }
+
+#current-weather-card {
+    width: 70rem;
+}
