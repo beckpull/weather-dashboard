@@ -5,6 +5,7 @@ var searchBtns = document.querySelector('#previous-cities');
 var APIKey = "d37296ae5a3a99d0e18df8be404eb930";
 
 function currentWeather(city) {
+    $('input').val('');
     currentDayEl.innerHTML = '';
     var requestURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
     fetch(requestURL)
@@ -15,14 +16,16 @@ function currentWeather(city) {
     .then(function(data) {
         console.log(data);
 
-        var previousBtns = document.createElement('div');
-        var btnHtml = `
-        <button type="button" class="save-btn list-group-item list-group-item-action my-2">${city}</button>
-        `
-        previousBtns.innerHTML = btnHtml;
-        searchBtns.appendChild(previousBtns);
-
-
+        if (!$(`.save-btn:contains('${city}')`).length) {
+            var previousBtns = document.createElement('div');
+            var btnHtml = `
+                <button type="button" class="save-btn list-group-item list-group-item-action my-2">${city}</button>
+            `;
+    
+            previousBtns.innerHTML = btnHtml;
+            searchBtns.appendChild(previousBtns);
+        }
+        saveCity(city);
         var todayDate = dayjs().format('dddd MMMM DD, YYYY');
         console.log(todayDate);
         var iconcode = data.weather[0].icon;
@@ -59,7 +62,50 @@ function currentWeather(city) {
     })
 }
 
+function saveCity(city) {
+    var savedCities = localStorage.getItem('savedCities');
+    var citiesArray = [];
+    if (savedCities) {
+        citiesArray = JSON.parse(savedCities);
+    }
+    citiesArray.push(city);
+    localStorage.setItem('savedCities', JSON.stringify(citiesArray));
+}
 
+$(document).on('click', '.save-btn', function(event) {
+    currentDayEl.innerHTML = '';
+    fiveDayEl.innerHTML = '';
+    let city = event.target.innerHTML;
+    currentWeather(city);
+});
+
+$('#clear-btn').on('click', function() {
+    localStorage.removeItem('savedCities');
+    $('.save-btn').remove();
+});
+
+
+$(document).ready(function() {
+    var savedCities = localStorage.getItem('savedCities');
+    if (savedCities) {
+        var citiesArray = JSON.parse(savedCities);
+        for (var i = 0; i < citiesArray.length; i++) {
+            createSaveButton(citiesArray[i]);
+        }
+    }
+});
+
+function createSaveButton(city) {
+    if (!$(`.save-btn:contains('${city}')`).length) {
+        var previousBtns = document.createElement('div');
+        var btnHtml = `
+            <button type="button" class="save-btn list-group-item list-group-item-action my-2">${city}</button>
+        `;
+
+        previousBtns.innerHTML = btnHtml;
+        searchBtns.appendChild(previousBtns);
+    }
+}
 
 function fiveDayWeather(lat, lon) {
     fiveDayEl.innerHTML = '';
@@ -115,10 +161,7 @@ $('#submit-btn').on('click', function() {
     currentWeather(city);
 })
 
-${'.list-group-item'}.on('click', function(event) {
-    let city = event.target.innerHTML;
-    currentWeather(city);
-})
+
 
 $( function() {
     var bigCities = [
