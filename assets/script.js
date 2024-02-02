@@ -1,10 +1,11 @@
 var currentDayEl = document.querySelector('#weather-info')
 var fiveDayEl = document.querySelector('#five-day');
+var searchBtns = document.querySelector('#previous-cities');
 
 var APIKey = "d37296ae5a3a99d0e18df8be404eb930";
 
-
 function currentWeather(city) {
+    currentDayEl.innerHTML = '';
     var requestURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
     fetch(requestURL)
     .then(function(response) {
@@ -13,12 +14,21 @@ function currentWeather(city) {
     })
     .then(function(data) {
         console.log(data);
+
+        var previousBtns = document.createElement('div');
+        var btnHtml = `
+        <button type="button" class="save-btn list-group-item list-group-item-action my-2">${city}</button>
+        `
+        previousBtns.innerHTML = btnHtml;
+        searchBtns.appendChild(previousBtns);
+
+
         var todayDate = dayjs().format('dddd MMMM DD, YYYY');
         console.log(todayDate);
         var iconcode = data.weather[0].icon;
         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
         var htmlDay = `
-            <div class="card text-center row m-3" id="current-weather-card">
+            <div class="card text-center m-3" id="current-weather-card">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
@@ -28,7 +38,7 @@ function currentWeather(city) {
                 </div>
 
                 <div class="card-body">
-                    <h2 class="card-title">${city}</h2>
+                    <h2 class="card-title">${data.name}</h2>
                     <div class="text-center" id="icon"><img id="wicon" src="${iconurl}" alt="Weather icon"></div>
                     <div class="card-body text-center">
                         <p>Humidity: ${data.main.humidity}%</p>
@@ -52,6 +62,7 @@ function currentWeather(city) {
 
 
 function fiveDayWeather(lat, lon) {
+    fiveDayEl.innerHTML = '';
     var requestURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
     fetch(requestURL)
     .then(function(response) {
@@ -99,10 +110,12 @@ function fiveDayWeather(lat, lon) {
 
 $('#submit-btn').on('click', function() {
     let city = $('#search-cities').val();
+
+
     currentWeather(city);
 })
 
-$('.list-group-item-action').on('click', function(event) {
+${'.list-group-item'}.on('click', function(event) {
     let city = event.target.innerHTML;
     currentWeather(city);
 })

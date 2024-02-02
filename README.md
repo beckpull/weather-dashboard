@@ -41,21 +41,23 @@ This is what you can expect to see upon opening the page:
 * Javascript
 * HTML
 * CSS
-* Git process
-* README files
+* Bootstrap CSS
+* JQuery
+* DayJS
+* OpenWeather API
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-This section outlines each step in this simple and easy-to-navigate-through Weather Dashboard upon clicking the "Start" button.
+This section outlines each step in this simple and easy-to-navigate-through Weather Dashboard upon clicking the "Search" button.
 
 ![Weather Dashboard Screenshot](./assets/question-1.png)
 ![Weather Dashboard Screenshot](./assets/get-initials.png)
 
 
-At the end, every high score earned by each user will be stored for easy viewing!
+Searches save for easy future viewing - access them with the click of a button!
 
 ![Weather Dashboard Screenshot](./assets/high-score.png)
 

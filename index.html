@@ -23,33 +23,31 @@
     <header>
         <h1>Weather Dashboard</h1>
     </header>
-    <section class="container-fluid d-flex">
+    <section class="container-fluid d-flex flex-wrap">
 
         <div class="search-form col-12 col-lg-2" id="search-form">
-            <label for="searchCities" class="form-label">Search for a city:</label>
-            <input type="search" id="search-cities" class="form-control" placeholder="San Diego">
-            <button type="button" class="btn btn-primary my-3" id="submit-btn">Search</button>
-            <div class="list-group" id="example-cities">
-                <button type="button" class="list-group-item list-group-item-action my-2">Atlanta</button>
-                <button type="button" class="list-group-item list-group-item-action my-2">Denver</button>
-                <button type="button" class="list-group-item list-group-item-action my-2">Seattle</button>
-                <button type="button" class="list-group-item list-group-item-action my-2">San Francisco</button>
-                <button type="button" class="list-group-item list-group-item-action my-2">Orlando</button>
-                <button type="button" class="list-group-item list-group-item-action my-2">New York</button>
-                <button type="button" class="list-group-item list-group-item-action my-2">Chicago</button>
-                <button type="button" class="list-group-item list-group-item-action my-2">Austin</button>
+            <div class="border border-primary rounded p-3">
+        
+                <label for="searchCities" class="form-label"><h5>Search for a city:</h5></label>
+                <input type="search" id="search-cities" class="form-control" placeholder="San Diego">
+                <button type="button" class="btn btn-primary my-3" id="submit-btn">Search</button>
+            </div>
+            <div class="list-group border border-primary rounded p-3" id="previous-cities">
+                <p>Search History:</p>
+                
+                
             </div>
         </div>
 
-        <div class="info-table row" id="info-table">
+        <div class="info-table text-center" id="info-table">
 
-            <div class="col-12 col-lg-9">
+            <div class="col-12 col-lg-10">
                 <div id="weather-info">
                     
                 </div>
             </div>
 
-            <div id="five-day">
+            <div class="col-12 col-lg-10" id="five-day">
 
 
             </div>
