@@ -8,7 +8,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> 
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-   
+        <link rel=”stylesheet” href=”css/bootstrap-responsive.css”>
         <script
         src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
@@ -20,22 +20,22 @@
 </head>
 
 <body>
-    <header>
+    <header class="col-12">
         <h1>Weather Dashboard</h1>
     </header>
-    <section class="container-fluid d-flex flex-wrap">
+    <section class="my-container container-fluid d-flex flex-wrap">
 
-        <div class="search-form col-12 col-lg-2" id="search-form">
+        <div class="search-form col-md-5 col-lg-3" id="search-form">
             <div class="border border-primary rounded p-3">
         
                 <label for="searchCities" class="form-label"><h5>Search for a city:</h5></label>
                 <input type="search" id="search-cities" class="form-control" placeholder="San Diego">
-                <button type="button" class="btn btn-primary my-3" id="submit-btn">Search</button>
+                <button type="button" class="btn btn-primary my-3" id="submit-btn"><strong>Search</strong></button>
                 <button type="button" class="btn btn-outline-primary my-3" id="clear-btn">Clear</button>
 
             </div>
             <div class="list-group border border-primary rounded p-3" id="previous-cities">
-                <p>Search History:</p>
+                <p><strong>Search History:</strong></p>
                 
                 
             </div>
@@ -49,7 +49,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-lg-10" id="five-day">
+            <div class="col-lg-10" id="five-day">
 
 
             </div>

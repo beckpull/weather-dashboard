@@ -31,7 +31,7 @@ function currentWeather(city) {
         var iconcode = data.weather[0].icon;
         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
         var htmlDay = `
-            <div class="card text-center m-3" id="current-weather-card">
+            <div class="card col-12 col-lg-10 text-center m-3" id="current-weather-card">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
@@ -129,24 +129,25 @@ function fiveDayWeather(lat, lon) {
                 
 
                 var htmlCard = `
-                <div class="card m-3">
-                    <div class="card-header text_center"><h6>${formatDate}
-                       </h6> 
+                    <div class="five-cards card m-3">
+                        <div class="card-header text_center"><h6>${formatDate}
+                        </h6> 
+                        </div>
+                        <div class="text-center" id="icon"><img id="wicon" src="${iconurl}" alt="Weather icon"></div>
+                        <div class="card-body text-center">
+                            <p>Humidity: ${element.main.humidity}%</p>
+                            <p>Wind speed: ${element.wind.speed} mph</p>
+                            <p class="card-title">Temp: ${element.main.temp} °F<p>
+                            <p class="card-text">${element.weather[0].description}</p>
+                        </div>
                     </div>
-                    <div class="text-center" id="icon"><img id="wicon" src="${iconurl}" alt="Weather icon"></div>
-                    <div class="card-body text-center">
-                        <p>Humidity: ${element.main.humidity}%</p>
-                        <p>Wind speed: ${element.wind.speed} mph</p>
-                        <p class="card-title">Temp: ${element.main.temp} °F<p>
-                        <p class="card-text">${element.weather[0].description}</p>
-                    </div>
-                </div>
                 `
                 
-    
+                fiveDayEl.setAttribute('class', 'd-flex flex-wrap');
                 var htmlSec = document.createElement('section');
                 htmlSec.innerHTML = htmlCard;
                 fiveDayEl.appendChild(htmlSec);
+
             }
 
         }

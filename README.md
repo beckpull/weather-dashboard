@@ -57,7 +57,7 @@ This section outlines each step in this simple and easy-to-navigate-through Weat
 ![Weather Dashboard Screenshot](./assets/get-initials.png)
 
 
-Searches save for easy future viewing - access them with the click of a button!
+Searches save for easy future viewing - access them with the click of a button!git statu
 
 ![Weather Dashboard Screenshot](./assets/high-score.png)
 

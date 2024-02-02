@@ -19,6 +19,51 @@ header {
     display: flex;
 }
 
-/* #current-weather-card {
-    width: 70rem;
-} */
+@media screen and (max-width: 1630px) {
+
+    .search-form {
+
+    }
+
+    #current-weather-card {
+
+    }
+
+    #five-cards {
+        
+    }
+}
+
+@media screen and (max-width: 1135px) {
+
+    .search-form {
+
+    }
+
+    #current-weather-card {
+
+    }
+
+    #five-cards {
+        
+    }
+}
+
+@media screen and (max-width: 630px) {
+
+    .my-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    #current-weather-card {
+        width: 100vw;
+    }
+
+    .five-cards {
+        
+        
+        width: 95vw;
+    }
+}
+
