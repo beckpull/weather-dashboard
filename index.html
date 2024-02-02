@@ -1,74 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
         <link rel=”stylesheet” href=”css/bootstrap-responsive.css”>
-        <script
-        src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-        crossorigin="anonymous"
-      ></script>
-      
+        <link rel="stylesheet" href="./assets/style.css">
         <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="./assets/style.css">
-</head>
 
-<body>
-    <header class="col-12">
-        <h1>Weather Dashboard</h1>
-    </header>
-    <section class="my-container container-fluid d-flex flex-wrap">
+    </head>
 
-        <div class="search-form col-md-5 col-lg-3" id="search-form">
-            <div class="border border-primary rounded p-3">
-        
-                <label for="searchCities" class="form-label"><h5>Search for a city:</h5></label>
-                <input type="search" id="search-cities" class="form-control" placeholder="San Diego">
-                <button type="button" class="btn btn-primary my-3" id="submit-btn"><strong>Search</strong></button>
-                <button type="button" class="btn btn-outline-primary my-3" id="clear-btn">Clear</button>
+    <body>
+        <header class="col-12">
+            <h1>Weather Dashboard</h1>
+        </header>
+        <section class="my-container container-fluid d-flex flex-wrap">
 
-            </div>
-            <div class="list-group border border-primary rounded p-3" id="previous-cities">
-                <p><strong>Search History:</strong></p>
-                
-                
-            </div>
-        </div>
-
-        <div class="info-table text-center" id="info-table">
-
-            <div class="col-12 col-lg-10">
-                <div id="weather-info">
-                    
+            <div class="search-form col-md-5 col-lg-3" id="search-form">
+                <div class="border border-primary rounded p-3">
+                    <label for="searchCities" class="form-label"><h5>Search for a city:</h5></label>
+                    <input type="search" id="search-cities" class="form-control" placeholder="San Diego">
+                    <button type="button" class="btn btn-primary my-3" id="submit-btn"><strong>Search</strong></button>
+                    <button type="button" class="btn btn-outline-primary my-3" id="clear-btn">Clear</button>
+                </div>
+                <div class="list-group border border-primary rounded p-3" id="previous-cities">
+                    <p><strong>Search History:</strong></p> 
                 </div>
             </div>
 
-            <div class="col-lg-10" id="five-day">
-
-
+            <div class="info-table text-center" id="info-table">
+                <div class="col-lg-10">
+                    <div id="weather-info">
+                        <!-- This will be the larger card displaying that day's weather -->
+                    </div>
+                </div>
+                <div class="col-lg-10" id="five-day">
+                    <!-- These will be five smaller cards with a five day weather forecast -->
+                </div>
             </div>
+        </section>
 
-        </div>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
-    <script src="./assets/script.js"></script>
- 
-
-</body>
-
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+            integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+            crossorigin="anonymous"
+            ></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> 
+        <script src="./assets/script.js"></script>
+    </body>
 </html>

@@ -4,6 +4,8 @@ var searchBtns = document.querySelector('#previous-cities');
 
 var APIKey = "d37296ae5a3a99d0e18df8be404eb930";
 
+
+// Initial fetch of current weather conditions - adds a larger card to html file with today's conditions and date
 function currentWeather(city) {
     $('input').val('');
     currentDayEl.innerHTML = '';
@@ -31,17 +33,18 @@ function currentWeather(city) {
         var iconcode = data.weather[0].icon;
         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
         var htmlDay = `
-            <div class="card col-12 col-lg-10 text-center m-3" id="current-weather-card">
+            <div class="card col-10 text-center m-3" id="current-weather-card">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="true">${todayDate}</a>
+                            <a class="nav-link active" aria-current="true">Today's Outlook</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="card-body">
                     <h2 class="card-title">${data.name}</h2>
+                    <h5>${todayDate}</h5>
                     <div class="text-center" id="icon"><img id="wicon" src="${iconurl}" alt="Weather icon"></div>
                     <div class="card-body text-center">
                         <p>Humidity: ${data.main.humidity}%</p>
@@ -62,40 +65,8 @@ function currentWeather(city) {
     })
 }
 
-function saveCity(city) {
-    var savedCities = localStorage.getItem('savedCities');
-    var citiesArray = [];
-    if (savedCities) {
-        citiesArray = JSON.parse(savedCities);
-    }
-    citiesArray.push(city);
-    localStorage.setItem('savedCities', JSON.stringify(citiesArray));
-}
-
-$(document).on('click', '.save-btn', function(event) {
-    currentDayEl.innerHTML = '';
-    fiveDayEl.innerHTML = '';
-    let city = event.target.innerHTML;
-    currentWeather(city);
-});
-
-$('#clear-btn').on('click', function() {
-    localStorage.removeItem('savedCities');
-    $('.save-btn').remove();
-});
-
-
-$(document).ready(function() {
-    var savedCities = localStorage.getItem('savedCities');
-    if (savedCities) {
-        var citiesArray = JSON.parse(savedCities);
-        for (var i = 0; i < citiesArray.length; i++) {
-            createSaveButton(citiesArray[i]);
-        }
-    }
-});
-
-function createSaveButton(city) {
+// Creates the saved search buttons
+function createSavedButton(city) {
     if (!$(`.save-btn:contains('${city}')`).length) {
         var previousBtns = document.createElement('div');
         var btnHtml = `
@@ -107,6 +78,38 @@ function createSaveButton(city) {
     }
 }
 
+// Saves search buttons in local storage
+function saveCity(city) {
+    var savedCities = localStorage.getItem('savedCities');
+    var citiesArray = [];
+    if (savedCities) {
+        citiesArray = JSON.parse(savedCities);
+    }
+    citiesArray.push(city);
+    localStorage.setItem('savedCities', JSON.stringify(citiesArray));
+}
+
+
+// Retrieves saved search buttons from local storage once page has loaded
+$(document).ready(function() {
+    var savedCities = localStorage.getItem('savedCities');
+    if (savedCities) {
+        var citiesArray = JSON.parse(savedCities);
+        for (var i = 0; i < citiesArray.length; i++) {
+            createSavedButton(citiesArray[i]);
+        }
+    }
+});
+
+// Clears saved buttons from screen and local storage
+$('#clear-btn').on('click', function() {
+    localStorage.removeItem('savedCities');
+    $('.save-btn').remove();
+});
+
+
+
+// Fetches the five-day weather forcast for the specified city and appends five cards into the html file with the required information
 function fiveDayWeather(lat, lon) {
     fiveDayEl.innerHTML = '';
     var requestURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
@@ -123,7 +126,7 @@ function fiveDayWeather(lat, lon) {
             if (noonTime === '12') {
                 console.log(element);
                 var newDate = element.dt_txt.split(' ')[0];
-                var formatDate = dayjs(newDate).format('dddd MMM DD YYYY');
+                var formatDate = dayjs(newDate).format('dddd MMM DD, YYYY');
                 var iconcode = element.weather[0].icon;
                 var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
                 
@@ -154,16 +157,21 @@ function fiveDayWeather(lat, lon) {
     })
 }
 
-
+// Event listener for 'Search' button
 $('#submit-btn').on('click', function() {
     let city = $('#search-cities').val();
-
-
     currentWeather(city);
 })
 
+// Event listener for our quick go-to saved search buttons
+$(document).on('click', '.save-btn', function(event) {
+    currentDayEl.innerHTML = '';
+    fiveDayEl.innerHTML = '';
+    let city = event.target.innerHTML;
+    currentWeather(city);
+});
 
-
+// Auto-complete feature for most city names in the United States
 $( function() {
     var bigCities = [
         "Alexander City", 

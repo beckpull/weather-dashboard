@@ -1,3 +1,5 @@
+/* Design elements outside of Bootstrap */
+
 header {
     background-color: navy;
     color:aliceblue;
@@ -19,37 +21,13 @@ header {
     display: flex;
 }
 
-@media screen and (max-width: 1630px) {
-
-    .search-form {
-
-    }
-
-    #current-weather-card {
-
-    }
-
-    #five-cards {
-        
-    }
+#current-weather-card {
+    width: 71rem;
 }
 
-@media screen and (max-width: 1135px) {
+/* Media queries for responsive design */
 
-    .search-form {
-
-    }
-
-    #current-weather-card {
-
-    }
-
-    #five-cards {
-        
-    }
-}
-
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 1627px) {
 
     .my-container {
         display: flex;
@@ -57,13 +35,40 @@ header {
     }
 
     #current-weather-card {
+        width: 58vw;
+    }
+
+    .five-cards {
+        width: 10vw;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+
+    #current-weather-card {
+        width: 60vw;
+    }
+
+    .five-cards {
+        width: 10vw;
+    }
+    
+}
+
+@media screen and (max-width: 1060px) {
+
+    #search-form {
+        width: 60vw;
+    }
+
+    #current-weather-card {
         width: 100vw;
     }
 
     .five-cards {
-        
-        
-        width: 95vw;
+        width: 100vw;
     }
 }
+
+
 
