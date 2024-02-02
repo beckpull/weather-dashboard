@@ -65,14 +65,15 @@ This section outlines each step in this simple and easy-to-navigate-through Weat
 
 <img src="./assets/last-step.png"  width="1000rem">
 
+> Your previous searches will save for easy future viewing - access them again with the click of a button!
+
+<img src="./assets/saves-searches.png"  width="700rem">
+
 > Simply click "Clear" if you'd like to reset your search history!
 
 <img src="./assets/clear.png"  width="500rem">
 
 
-> Your previous searches will save for easy future viewing - access them again with the click of a button!
-
-<img src="./assets/saves-searches.png"  width="700rem">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
