@@ -33,7 +33,13 @@
 
 This is what you can expect to see upon opening the page:
 
-![Weather Dashboard Screenshot](./assets/welcome-page.png)
+![Weather Dashboard Screenshot](./assets/dashboard.png)
+
+This page is responsive, so it will look good using any device!
+
+
+<img src="./assets/md-responsive.png"  width="500rem">
+<img src="./assets/sm-responsive.png"  width="200rem">
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
@@ -51,15 +57,22 @@ This is what you can expect to see upon opening the page:
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-This section outlines each step in this simple and easy-to-navigate-through Weather Dashboard upon clicking the "Search" button.
+This section outlines each step in this simple and easy-to-navigate-through Weather Dashboard upon visiting the website.
 
-![Weather Dashboard Screenshot](./assets/question-1.png)
-![Weather Dashboard Screenshot](./assets/get-initials.png)
+<img src="./assets/autocomplete-1.png"  width="200rem">
+<img src="./assets/autocomplete-2.png"  width="500rem">
+<img src="./assets/click-search.png"  width="500rem">
+
+<img src="./assets/last-step.png"  width="1000rem">
+
+> Simply click "Clear" if you'd like to reset your search history!
+
+<img src="./assets/clear.png"  width="500rem">
 
 
-Searches save for easy future viewing - access them with the click of a button!git statu
+> Your previous searches will save for easy future viewing - access them again with the click of a button!
 
-![Weather Dashboard Screenshot](./assets/high-score.png)
+<img src="./assets/saves-searches.png"  width="700rem">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
